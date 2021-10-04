@@ -1,0 +1,26 @@
+{
+    // Required
+    "taskDefinition": {
+        // AWS ECS task definition (https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html)
+    },
+    // Required
+    "launchType": "string", // option: "FARGATE", "EC2", "EXTERNAL"
+    "networks": { // Optional. Only support for Fargate launchType
+        "inbound": [ // Optional. Default: None
+            {
+                "FromPort": 1,
+                "ToPort": 30,
+                "CidrIp": "0.0.0.0/0",
+                "IpProtocol": "tcp"
+            }
+        ],
+        "outbound": [   // Optional. Default: All traffic for all port
+            {
+                "FromPort": 1,
+                "ToPort": 30,
+                "CidrIp": "0.0.0.0/0",
+                "IpProtocol": "tcp"
+            }
+        ]
+    } 
+}
